@@ -19,7 +19,7 @@
 
 <h2 class='titleHead'>Information Theory</h2>
  <div class='author'><a href='https://cms.ual.es/UAL/personas/persona.htm?id=515256515553484875'><span class='ecrm-1200'>Vicente González Ruiz</span></a> <span class='ecrm-1200'>- </span><a href='https://cms.ual.es/UAL/universidad/departamentos/informatica/index.htm'><span class='ecrm-1200'>Depto Informática</span></a> <span class='ecrm-1200'>- </span><a href='https://www.ual.es'><span class='ecrm-1200'>UAL</span></a></div><br />
-<div class='date'><span class='ecrm-1200'>June 27, 2022</span></div>
+<div class='date'><span class='ecrm-1200'>June 29, 2022</span></div>
    </div>
    <h3 class='likesectionHead' id='contents'><a id='x1-1000'></a>Contents</h3>
    <div class='tableofcontents'>
@@ -32,18 +32,22 @@
 </p>
    <h3 class='sectionHead' id='rate'><span class='titlemark'>1   </span> <a id='x1-20001'></a>Rate</h3>
 <!-- l. 10 --><p class='noindent'>In a communication system, the <a href='https://en.wikipedia.org/wiki/Bit_rate'>rate</a> describes the amount of data (for example, bits)
-that is transmited by time unit (for example, a second).
-</p><!-- l. 15 --><p class='noindent'>
+that is transmited by time unit (for example, a second). Such rate depends
+on:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-2002x1'>The <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>entropy</a> of the information represented by the data. The higher the
+     entropy, the higher the rate.
+     </li>
+<li class='enumerate' id='x1-2004x2'>The encoding scheme (usualy known as the <a href='https://en.wikipedia.org/wiki/Entropy_coding'>entropy coding</a>) using for
+     representing the information.</li></ol>
+<!-- l. 24 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='distortion'><span class='titlemark'>2   </span> <a id='x1-30002'></a>Distortion</h3>
-<!-- l. 17 --><p class='noindent'>In an lossy encoding system, the distortion (expressed for example by the <a href='https://en.wikipedia.org/wiki/Mean_squared_error'>MSE</a>)
+<!-- l. 26 --><p class='noindent'>In an lossy encoding system, the distortion (expressed for example by the <a href='https://en.wikipedia.org/wiki/Mean_squared_error'>MSE</a>)
 measures the amount of error between two signals: the original signal and the
 distorted one. The origin of this error can be quite varied and ranges from
 transmission errors to quantization processes.
-                                                                  
-
-                                                                  
-</p><!-- l. 23 --><p class='noindent'>
+</p><!-- l. 32 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='rd-ratedistortion-curve'><span class='titlemark'>3   </span> <a id='x1-40003'></a>RD (Rate/Distortion) curve</h3>
    <figure class='figure'> 
@@ -54,7 +58,7 @@ transmission errors to quantization processes.
                                                                   
 
                                                                   
-<!-- l. 29 --><p class='noindent' id='-two-rd-ratedistortion-curves-'><img alt='PIC' height='345' src='graphics/RD_slopes.svg' width='345' /> <a id='x1-4001r1'></a>
+<!-- l. 38 --><p class='noindent' id='-two-rd-ratedistortion-curves-'><img alt='PIC' height='345' src='graphics/RD_slopes.svg' width='345' /> <a id='x1-4001r1'></a>
 <a id='x1-4002'></a>
 </p>
 <figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Two RD (Rate/Distortion) curves.                            </span></figcaption><!-- tex4ht:label?: x1-4001r3  -->
@@ -62,7 +66,7 @@ transmission errors to quantization processes.
 
                                                                   
    </figure>
-<!-- l. 34 --><p class='indent'>   For example, when the signal is quantized, rate and distortion are “conflicting”
+<!-- l. 43 --><p class='indent'>   For example, when the signal is quantized, rate and distortion are “conflicting”
 features of the encoding system in the sense that, for example, if the bit-rate is
 descreased, the distortion is increased, and viceversa. Such variables (Rate (R) and
 Distortion (D)) can be represented as a curve such as the shown in the Fig. <a href='#x1-4001r1'>1<!-- tex4ht:ref: fig:RD_slopes  --></a>.
@@ -85,7 +89,7 @@ true in the real world.
    Prentice-hall, 1995.
 </p>
    </div>
-   <div class='footnotes'><!-- l. 48 --><p class='indent'>     <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>For this reason, the slopes are negative.</span></p>                                                           </div>
+   <div class='footnotes'><!-- l. 57 --><p class='indent'>     <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>For this reason, the slopes are negative.</span></p>                                                           </div>
  
 </body> 
 </html>
