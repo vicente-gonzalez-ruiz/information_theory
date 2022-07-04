@@ -111,22 +111,26 @@ distortion<span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class=
 while the bit-rate increases <span class='cite'>[<a href='#Xvetterli1995wavelets'>2</a>, <a href='#Xsayood2017introduction'>1</a>]</span>. However, Eq. \eqref{eq:convexity} is not always
 true in the real world.
 </p><!-- l. 110 --><p class='indent'>   Notice that, the higher the slope, the higher the benefit in terms of RD.
+</p><!-- l. 112 --><p class='indent'>   As a final remark, take into consideration that the quantization steps used in each
+subband should be selected considering aspects such as the ganularity of the
                                                                   
 
                                                                   
-</p><!-- l. 114 --><p class='noindent'>
-</p>
-   <h3 class='sectionHead' id='slope-computation'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Slope computation</h3>
-<!-- l. 115 --><p class='noindent'>We define the slope of the \(n\)-th point in a RD curve as the slope of the straight line
-passing through the points \(n\) and \(n+1\) (see the Fig. <span class='ecbx-1000'>??</span>). The slope of the point for the
-highest rate is defined to \(0\).
+rate-control<span class='footnote-mark'><a href='#fn3x0' id='fn3x0-bk'><sup class='textsuperscript'>3</sup></a></span><a id='x1-7002f3'></a> and the features
+of the decoding process<span class='footnote-mark'><a href='#fn4x0' id='fn4x0-bk'><sup class='textsuperscript'>4</sup></a></span><a id='x1-7003f4'></a>
 </p><!-- l. 121 --><p class='noindent'>
 </p>
+   <h3 class='sectionHead' id='slope-computation'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Slope computation</h3>
+<!-- l. 122 --><p class='noindent'>We define the slope of the \(n\)-th point in a RD curve as the slope of the straight line
+passing through the points \(n\) and \(n+1\) (see the Fig. <span class='ecbx-1000'>??</span>). The slope of the point for the
+highest rate is defined to \(0\).
+</p><!-- l. 128 --><p class='noindent'>
+</p>
    <h3 class='sectionHead' id='comparing-rd-curves'><span class='titlemark'>8   </span> <a id='x1-90008'></a>Comparing RD curves</h3>
-<!-- l. 122 --><p class='noindent'>RD curves should be convex. If we have two curves, the best one from a RD
+<!-- l. 129 --><p class='noindent'>RD curves should be convex. If we have two curves, the best one from a RD
 perspective is those that minimizes the sum of the distances from its RD points to
 the origin of coordinates \((0,0)\).
-</p><!-- l. 126 --><p class='noindent'>
+</p><!-- l. 133 --><p class='noindent'>
 </p>
    <h3 class='sectionHead' id='rdo-ratedistortion-optimization'><span class='titlemark'>9   </span> <a id='x1-100009'></a>RDO (Rate/Distortion) Optimization</h3>
    <figure class='figure'> 
@@ -137,7 +141,7 @@ the origin of coordinates \((0,0)\).
                                                                   
 
                                                                   
-<!-- l. 132 --><p class='noindent' id='-two-rd-ratedistortion-curves-'><img alt='PIC' height='345' src='graphics/RD_slopes.svg' width='345' /> <a id='x1-10001r1'></a>
+<!-- l. 139 --><p class='noindent' id='-two-rd-ratedistortion-curves-'><img alt='PIC' height='345' src='graphics/RD_slopes.svg' width='345' /> <a id='x1-10001r1'></a>
 <a id='x1-10002'></a>
 </p>
 <figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Two RD (Rate/Distortion) curves.                            </span></figcaption><!-- tex4ht:label?: x1-10001r9  -->
@@ -145,16 +149,16 @@ the origin of coordinates \((0,0)\).
 
                                                                   
    </figure>
-<!-- l. 137 --><p class='indent'>   RDO is a process that arises when we need to encode at the same time two or
+<!-- l. 144 --><p class='indent'>   RDO is a process that arises when we need to encode at the same time two or
 more different sources of data, \(A\) and \(B\). When this happens, each source has own
 charateristic RD curve (see the Fig. <span class='cite'>[<span class='ecbx-1000'>?</span>]</span>).
-</p><!-- l. 142 --><p class='indent'>   If we suppose now that the contribution to the distortion of the quantization of each source
-is independent<span class='footnote-mark'><a href='#fn3x0' id='fn3x0-bk'><sup class='textsuperscript'>3</sup></a></span><a id='x1-10003f3'></a>
-and additive<span class='footnote-mark'><a href='#fn4x0' id='fn4x0-bk'><sup class='textsuperscript'>4</sup></a></span><a id='x1-10004f4'></a>,
+</p><!-- l. 149 --><p class='indent'>   If we suppose now that the contribution to the distortion of the quantization of each source
+is independent<span class='footnote-mark'><a href='#fn5x0' id='fn5x0-bk'><sup class='textsuperscript'>5</sup></a></span><a id='x1-10003f5'></a>
+and additive<span class='footnote-mark'><a href='#fn6x0' id='fn6x0-bk'><sup class='textsuperscript'>6</sup></a></span><a id='x1-10004f6'></a>,
 that is \begin {equation}  D = D^A + D^B, \label {eq:additive}  \end {equation}
 where \(D\) denotes distortion, then the optimal quantization steps must satisfy
 that <span class='cite'>[<a href='#Xvetterli1995wavelets'>2</a>, <a href='#Xsayood2017introduction'>1</a>]</span> \begin {equation}  \lambda ^A_i = \lambda ^B_i. \label {eq:optimal_quantization}  \end {equation}
-</p><!-- l. 163 --><p class='indent'>   To see this, lets suppose that we have used, for example, a set of quantization step
+</p><!-- l. 170 --><p class='indent'>   To see this, lets suppose that we have used, for example, a set of quantization step
 sizes so that \(\lambda ^A_i/2 = \lambda ^B_i,\) and that we still have room for more bits to encode the frame. In this
 situation, the maximum benefit would be obtained if and only if we decrease \(\Delta ^A_i\)
 (modifiying the corresponding \(\mathbf {\Delta }_i\)), because the slope for the source \(A\) doubles the slope
@@ -176,8 +180,11 @@ true.
 </span><span class='ecrm-0800'>file,  then,  for  the  compressor  that  we  are  using,  there  is  not  redundancy  in  the  original
 </span><span class='ecrm-0800'>representation.</span></p>
 <!-- l. 105 --><p class='indent'>     <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='ecrm-0800'>For this reason, the slopes are negative.</span></p>
-<!-- l. 145 --><p class='indent'>     <span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>The distortion generated in one of the sources does not influence the distortion generated in
-</span><span class='ecrm-0800'>the other source.</span></p><!-- l. 151 --><p class='indent'> <span class='footnote-mark'><a href='#fn4x0-bk' id='fn4x0'><sup class='textsuperscript'>4</sup></a></span><span class='ecrm-0800'>Or in general, a linear combination of the distortions, where each source contributes more
+<!-- l. 115 --><p class='indent'>     <span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>How many points has the RD curve.</span></p>
+<!-- l. 117 --><p class='indent'>     <span class='footnote-mark'><a href='#fn4x0-bk' id='fn4x0'><sup class='textsuperscript'>4</sup></a></span><span class='ecrm-0800'>For example, if we want to provide progressive bit-plane decoding, the quantization steps
+</span><span class='ecrm-0800'>should be powers of</span> \(2\)<span class='ecrm-0800'>.</span></p>
+<!-- l. 152 --><p class='indent'>     <span class='footnote-mark'><a href='#fn5x0-bk' id='fn5x0'><sup class='textsuperscript'>5</sup></a></span><span class='ecrm-0800'>The distortion generated in one of the sources does not influence the distortion generated in
+</span><span class='ecrm-0800'>the other source.</span></p><!-- l. 158 --><p class='indent'> <span class='footnote-mark'><a href='#fn6x0-bk' id='fn6x0'><sup class='textsuperscript'>6</sup></a></span><span class='ecrm-0800'>Or in general, a linear combination of the distortions, where each source contributes more
 </span><span class='ecrm-0800'>than the other(s) to the total distortion</span> \(D\) <span class='ecrm-0800'>(this occurs, for example, when the inverse
 </span><span class='ecrm-0800'>filters of a linear (orthogonal, backward) transform has different gains, in which case the
 </span><span class='ecrm-0800'>quantization step sizes for a subband should be inversely proportional to the subband

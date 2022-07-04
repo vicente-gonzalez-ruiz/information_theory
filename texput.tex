@@ -109,6 +109,13 @@ Eq.~\eqref{eq:convexity} is not always true in the real world.
 
 Notice that, the higher the slope, the higher the benefit in terms of RD.
 
+As a final remark, take into consideration that the quantization steps
+used in each subband should be selected considering aspects such as
+the ganularity of the rate-control\footnote{How many points has the RD
+curve.} and the features of the decoding process\footnote{For example,
+if we want to provide progressive bit-plane decoding, the quantization
+steps should be powers of $2$.}
+
 %}}}
 
 \section{Slope computation}
