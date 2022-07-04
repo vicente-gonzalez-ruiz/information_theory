@@ -23,33 +23,40 @@
    </div>
    <h3 class='likesectionHead' id='contents'><a id='x1-1000'></a>Contents</h3>
    <div class='tableofcontents'>
-    <span class='sectionToc'>1 <a href='#statistical-redundancy' id='QQ2-1-2'>Statistical redundancy</a></span>
-<br />    <span class='sectionToc'>2 <a href='#measurement-of-the-redundancy' id='QQ2-1-3'>Measurement of the redundancy</a></span>
-<br />    <span class='sectionToc'>3 <a href='#rate' id='QQ2-1-4'>Rate</a></span>
-<br />    <span class='sectionToc'>4 <a href='#distortion' id='QQ2-1-5'>Distortion</a></span>
-<br />    <span class='sectionToc'>5 <a href='#the-rd-ratedistortion-curve' id='QQ2-1-6'>The RD (Rate/Distortion) curve</a></span>
-<br />    <span class='sectionToc'>6 <a href='#comparing-rd-curves' id='QQ2-1-7'>Comparing RD curves</a></span>
-<br />    <span class='sectionToc'>7 <a href='#rdo-ratedistortion-optimization' id='QQ2-1-8'>RDO (Rate/Distortion) Optimization</a></span>
-<br />    <span class='sectionToc'>8 <a href='#resources' id='QQ2-1-10'>Resources</a></span>
+    <span class='sectionToc'>1 <a href='#information-measurement' id='QQ2-1-2'>Information measurement</a></span>
+<br />    <span class='sectionToc'>2 <a href='#statistical-redundancy' id='QQ2-1-3'>Statistical redundancy</a></span>
+<br />    <span class='sectionToc'>3 <a href='#measurement-of-the-redundancy' id='QQ2-1-4'>Measurement of the redundancy</a></span>
+<br />    <span class='sectionToc'>4 <a href='#rate' id='QQ2-1-5'>Rate</a></span>
+<br />    <span class='sectionToc'>5 <a href='#distortion' id='QQ2-1-6'>Distortion</a></span>
+<br />    <span class='sectionToc'>6 <a href='#the-rd-ratedistortion-curve' id='QQ2-1-7'>The RD (Rate/Distortion) curve</a></span>
+<br />    <span class='sectionToc'>7 <a href='#slope-computation' id='QQ2-1-8'>Slope computation</a></span>
+<br />    <span class='sectionToc'>8 <a href='#comparing-rd-curves' id='QQ2-1-9'>Comparing RD curves</a></span>
+<br />    <span class='sectionToc'>9 <a href='#rdo-ratedistortion-optimization' id='QQ2-1-10'>RDO (Rate/Distortion) Optimization</a></span>
+<br />    <span class='sectionToc'>10 <a href='#resources' id='QQ2-1-12'>Resources</a></span>
    </div>
 <!-- l. 8 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='statistical-redundancy'><span class='titlemark'>1   </span> <a id='x1-20001'></a>Statistical redundancy</h3>
-<!-- l. 10 --><p class='noindent'><a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>Statistical redundancy</a> is present in all those sequences of symbols where we can
-infeer a probability of ocurrence of a symbol taking into consideration the rest of
-symbols of a sequence. Statistical redudancy can be found in text, audio, image and
-video, among other types of signals.
-</p><!-- l. 16 --><p class='indent'>   Statistical redundancy can be removed by text compressors.
-</p><!-- l. 18 --><p class='indent'>   Statistical redundancy is also called source-coding redundancy <span class='cite'>[<span class='ecbx-1000'>?</span>]</span>.
+   <h3 class='sectionHead' id='information-measurement'><span class='titlemark'>1   </span> <a id='x1-20001'></a>Information measurement</h3>
+<!-- l. 9 --><p class='noindent'>Information is usually estimated through the measurement of the <a href='https://en.wikipedia.org/wiki/Variance'>variance</a> or the
+<a href='https://en.wikipedia.org/wiki/Entropy'>entropy</a>.
                                                                   
 
                                                                   
-</p><!-- l. 20 --><p class='noindent'>
+</p><!-- l. 14 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='measurement-of-the-redundancy'><span class='titlemark'>2   </span> <a id='x1-30002'></a>Measurement of the redundancy</h3>
-<!-- l. 21 --><p class='noindent'><a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>redundancy</a> we have basically two options:
+   <h3 class='sectionHead' id='statistical-redundancy'><span class='titlemark'>2   </span> <a id='x1-30002'></a>Statistical redundancy</h3>
+<!-- l. 16 --><p class='noindent'><a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>Statistical redundancy</a> is present in all those sequences of symbols where we can
+infeer a probability of ocurrence of a symbol taking into consideration the rest of
+symbols of a sequence. Statistical redudancy can be found in text, audio, image and
+video, among other types of signals.
+</p><!-- l. 22 --><p class='indent'>   Statistical redundancy can be removed by text compressors.
+</p><!-- l. 24 --><p class='indent'>   Statistical redundancy is also called source-coding redundancy <span class='cite'>[<span class='ecbx-1000'>?</span>]</span>.
+</p><!-- l. 26 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead' id='measurement-of-the-redundancy'><span class='titlemark'>3   </span> <a id='x1-40003'></a>Measurement of the redundancy</h3>
+<!-- l. 27 --><p class='noindent'><a href='https://en.wikipedia.org/wiki/Redundancy_(information_theory)'>redundancy</a> we have basically two options:
      </p><ol class='enumerate1'>
-<li class='enumerate' id='x1-3002x1'>Compute the <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>0-order (memoryless source) entropy</a> of the signal: the higher
+<li class='enumerate' id='x1-4002x1'>Compute the <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>0-order (memoryless source) entropy</a> of the signal: the higher
      the  entropy,  the  lower  the  redudancy.  In  fact,  if  we  suppose  that  the
      samples of the signal are uncorrelated, the 0-order entropy is an exact
      measure of the expected bit-rate achieved by an <a href='https://en.wikipedia.org/wiki/Arithmetic_coding'>arithmetic encoder</a> (the
@@ -57,65 +64,71 @@ video, among other types of signals.
      usually only a estimation of the redundancy, i.e., lower bit-rates can be
      achieved in practice after using a high-order decorrelation.
      </li>
-<li class='enumerate' id='x1-3004x2'>A better way is to use an <a href='https://en.wikipedia.org/wiki/Data_compression'>lossless compressor</a>: the higher the length of the
+<li class='enumerate' id='x1-4004x2'>A better way is to use an <a href='https://en.wikipedia.org/wiki/Data_compression'>lossless compressor</a>: the higher the length of the
      compressed file compared to the length of the original file, the lower the
-     redundancy.<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-3005f1'></a>
+     redundancy.<span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-4005f1'></a>
      Notice,  however,  that  although  this  estimation  is  more  accurate  than
      the 0-order entropy, in general, it depends on the compressor (different
      algoritms can provide different estimations).</li></ol>
-<!-- l. 48 --><p class='noindent'>
+<!-- l. 54 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='rate'><span class='titlemark'>3   </span> <a id='x1-40003'></a>Rate</h3>
-<!-- l. 50 --><p class='noindent'>In a communication system, the <a href='https://en.wikipedia.org/wiki/Bit_rate'>rate</a> describes the amount of data (for example, bits)
+   <h3 class='sectionHead' id='rate'><span class='titlemark'>4   </span> <a id='x1-50004'></a>Rate</h3>
+<!-- l. 56 --><p class='noindent'>In a communication system, the <a href='https://en.wikipedia.org/wiki/Bit_rate'>rate</a> describes the amount of data (for example, bits)
 that is transmited by time unit (for example, a second). Such rate depends
 on:
-     </p><ol class='enumerate1'>
-<li class='enumerate' id='x1-4002x1'>The <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>entropy</a> of the information represented by the data. The higher the
-     entropy, the higher the rate.
-     </li>
-<li class='enumerate' id='x1-4004x2'>The encoding scheme (usualy known as the <a href='https://en.wikipedia.org/wiki/Entropy_coding'>entropy coding</a>) using for
-     representing the information.</li></ol>
                                                                   
 
                                                                   
-<!-- l. 64 --><p class='noindent'>
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-5002x1'>The <a href='https://en.wikipedia.org/wiki/Entropy_(information_theory)'>entropy</a> of the information represented by the data. The higher the
+     entropy, the higher the rate.
+     </li>
+<li class='enumerate' id='x1-5004x2'>The encoding scheme (usualy known as the <a href='https://en.wikipedia.org/wiki/Entropy_coding'>entropy coding</a>) using for
+     representing the information.</li></ol>
+<!-- l. 70 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='distortion'><span class='titlemark'>4   </span> <a id='x1-50004'></a>Distortion</h3>
-<!-- l. 66 --><p class='noindent'>In an lossy encoding system, the distortion (expressed for example by the <a href='https://en.wikipedia.org/wiki/Mean_squared_error'>MSE</a>)
+   <h3 class='sectionHead' id='distortion'><span class='titlemark'>5   </span> <a id='x1-60005'></a>Distortion</h3>
+<!-- l. 72 --><p class='noindent'>In an lossy encoding system, the distortion (expressed for example by the <a href='https://en.wikipedia.org/wiki/Mean_squared_error'>MSE</a>)
 measures the amount of error between two signals: the original signal and the
 distorted one. The origin of this error can be quite varied and ranges from
 transmission errors to quantization processes.
-</p><!-- l. 72 --><p class='noindent'>
+</p><!-- l. 78 --><p class='noindent'>
 </p>
-   <h3 class='sectionHead' id='the-rd-ratedistortion-curve'><span class='titlemark'>5   </span> <a id='x1-60005'></a>The RD (Rate/Distortion) curve</h3>
-<!-- l. 74 --><p class='noindent'>A RD curve represents the distortion versus the rate (i.e, the <a href='https://en.wikipedia.org/wiki/Rate-distortion_theory'>RD performance</a>) of
+   <h3 class='sectionHead' id='the-rd-ratedistortion-curve'><span class='titlemark'>6   </span> <a id='x1-70006'></a>The RD (Rate/Distortion) curve</h3>
+<!-- l. 80 --><p class='noindent'>A RD curve represents the distortion versus the rate (i.e, the <a href='https://en.wikipedia.org/wiki/Rate-distortion_theory'>RD performance</a>) of
 any lossy encoding system. Basically, a RD curve express the compresibility of
 different approximations to the information generated by a source of data.
-</p><!-- l. 80 --><p class='indent'>   For example, when the signal is quantized, rate and distortion are “opposed”
+</p><!-- l. 86 --><p class='indent'>   For example, when the signal is quantized, rate and distortion are “opposed”
 features of the encoding system in the sense that, for example, if the bit-rate is
 descreased, the distortion is increased, and viceversa. Such variables (Rate (R) and
 Distortion (D)) can be represented as a curve.
-</p><!-- l. 86 --><p class='indent'>   such as the shown in the Fig. <a href='#x1-8001r1'>1<!-- tex4ht:ref: fig:RD_slopes  --></a>.
-</p><!-- l. 89 --><p class='indent'>   Usually, RD curves are convex, which means that if \(\lambda _i\) is the slope of the curve
+</p><!-- l. 92 --><p class='indent'>   such as the shown in the Fig. <a href='#x1-10001r1'>1<!-- tex4ht:ref: fig:RD_slopes  --></a>.
+</p><!-- l. 96 --><p class='indent'>   Usually, RD curves are convex, which means that if \(\lambda _i\) is the slope of the curve
 measured at the \(i\)-th point of the curve (starting at the lowest bit-rate), it usually
 hold that \begin {equation}  \lambda _i &gt; \lambda _{i+1}. \label {eq:convexity}  \end {equation}
 where \(\lambda \) quantifies the trade-off between decreasing the
-distortion<span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-6001f2'></a>
+distortion<span class='footnote-mark'><a href='#fn2x0' id='fn2x0-bk'><sup class='textsuperscript'>2</sup></a></span><a id='x1-7001f2'></a>
 while the bit-rate increases <span class='cite'>[<a href='#Xvetterli1995wavelets'>2</a>, <a href='#Xsayood2017introduction'>1</a>]</span>. However, Eq. \eqref{eq:convexity} is not always
 true in the real world.
-</p><!-- l. 103 --><p class='indent'>   Notice that, the higher the slope, the higher the benefit in terms of RD.
-</p><!-- l. 107 --><p class='noindent'>
-</p>
-   <h3 class='sectionHead' id='comparing-rd-curves'><span class='titlemark'>6   </span> <a id='x1-70006'></a>Comparing RD curves</h3>
-<!-- l. 108 --><p class='noindent'>RD curves should be convex. If we have two curves, the best one from a RD
-perspective is those that minimizes the sum of the distances from its RD points to
-the origin of coordinates \((0,0)\).
-</p><!-- l. 112 --><p class='noindent'>
-</p>
-   <h3 class='sectionHead' id='rdo-ratedistortion-optimization'><span class='titlemark'>7   </span> <a id='x1-80007'></a>RDO (Rate/Distortion) Optimization</h3>
+</p><!-- l. 110 --><p class='indent'>   Notice that, the higher the slope, the higher the benefit in terms of RD.
                                                                   
 
                                                                   
+</p><!-- l. 114 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead' id='slope-computation'><span class='titlemark'>7   </span> <a id='x1-80007'></a>Slope computation</h3>
+<!-- l. 115 --><p class='noindent'>We define the slope of the \(n\)-th point in a RD curve as the slope of the straight line
+passing through the points \(n\) and \(n+1\) (see the Fig. <span class='ecbx-1000'>??</span>). The slope of the point for the
+highest rate is defined to \(0\).
+</p><!-- l. 121 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead' id='comparing-rd-curves'><span class='titlemark'>8   </span> <a id='x1-90008'></a>Comparing RD curves</h3>
+<!-- l. 122 --><p class='noindent'>RD curves should be convex. If we have two curves, the best one from a RD
+perspective is those that minimizes the sum of the distances from its RD points to
+the origin of coordinates \((0,0)\).
+</p><!-- l. 126 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead' id='rdo-ratedistortion-optimization'><span class='titlemark'>9   </span> <a id='x1-100009'></a>RDO (Rate/Distortion) Optimization</h3>
    <figure class='figure'> 
 
                                                                   
@@ -124,31 +137,31 @@ the origin of coordinates \((0,0)\).
                                                                   
 
                                                                   
-<!-- l. 118 --><p class='noindent' id='-two-rd-ratedistortion-curves-'><img alt='PIC' height='345' src='graphics/RD_slopes.svg' width='345' /> <a id='x1-8001r1'></a>
-<a id='x1-8002'></a>
+<!-- l. 132 --><p class='noindent' id='-two-rd-ratedistortion-curves-'><img alt='PIC' height='345' src='graphics/RD_slopes.svg' width='345' /> <a id='x1-10001r1'></a>
+<a id='x1-10002'></a>
 </p>
-<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Two RD (Rate/Distortion) curves.                            </span></figcaption><!-- tex4ht:label?: x1-8001r7  -->
+<figcaption class='caption'><span class='id'>Figure 1: </span><span class='content'>Two RD (Rate/Distortion) curves.                            </span></figcaption><!-- tex4ht:label?: x1-10001r9  -->
                                                                   
 
                                                                   
    </figure>
-<!-- l. 123 --><p class='indent'>   RDO is a process that arises when we need to encode at the same time two or
+<!-- l. 137 --><p class='indent'>   RDO is a process that arises when we need to encode at the same time two or
 more different sources of data, \(A\) and \(B\). When this happens, each source has own
 charateristic RD curve (see the Fig. <span class='cite'>[<span class='ecbx-1000'>?</span>]</span>).
-</p><!-- l. 128 --><p class='indent'>   If we suppose now that the contribution to the distortion of the quantization of each source
-is independent<span class='footnote-mark'><a href='#fn3x0' id='fn3x0-bk'><sup class='textsuperscript'>3</sup></a></span><a id='x1-8003f3'></a>
-and additive<span class='footnote-mark'><a href='#fn4x0' id='fn4x0-bk'><sup class='textsuperscript'>4</sup></a></span><a id='x1-8004f4'></a>,
+</p><!-- l. 142 --><p class='indent'>   If we suppose now that the contribution to the distortion of the quantization of each source
+is independent<span class='footnote-mark'><a href='#fn3x0' id='fn3x0-bk'><sup class='textsuperscript'>3</sup></a></span><a id='x1-10003f3'></a>
+and additive<span class='footnote-mark'><a href='#fn4x0' id='fn4x0-bk'><sup class='textsuperscript'>4</sup></a></span><a id='x1-10004f4'></a>,
 that is \begin {equation}  D = D^A + D^B, \label {eq:additive}  \end {equation}
 where \(D\) denotes distortion, then the optimal quantization steps must satisfy
 that <span class='cite'>[<a href='#Xvetterli1995wavelets'>2</a>, <a href='#Xsayood2017introduction'>1</a>]</span> \begin {equation}  \lambda ^A_i = \lambda ^B_i. \label {eq:optimal_quantization}  \end {equation}
-</p><!-- l. 149 --><p class='indent'>   To see this, lets suppose that we have used, for example, a set of quantization step
+</p><!-- l. 163 --><p class='indent'>   To see this, lets suppose that we have used, for example, a set of quantization step
 sizes so that \(\lambda ^A_i/2 = \lambda ^B_i,\) and that we still have room for more bits to encode the frame. In this
 situation, the maximum benefit would be obtained if and only if we decrease \(\Delta ^A_i\)
 (modifiying the corresponding \(\mathbf {\Delta }_i\)), because the slope for the source \(A\) doubles the slope
 of the source \(B\). Therefore, the optimal quantization steps are obtained when Eq. <span class='ecbx-1000'>??</span> is
 true.
 </p>
-   <h3 class='sectionHead' id='resources'><span class='titlemark'>8   </span> <a id='x1-90008'></a>Resources</h3>
+   <h3 class='sectionHead' id='resources'><span class='titlemark'>10   </span> <a id='x1-1100010'></a>Resources</h3>
    <div class='thebibliography'>
    <p class='bibitem'><span class='biblabel'>
  [1]<span class='bibsp'>   </span></span><a id='Xsayood2017introduction'></a>K. Sayood.   <a href='http://rahilshaikh.weebly.com/uploads/1/1/6/3/11635894/data_compression.pdf'><span class='ecti-1000'>Introduction to Data Compression</span></a>.   Morgan  Kaufmann,
@@ -159,12 +172,12 @@ true.
    Prentice-hall, 1995.
 </p>
    </div>
-   <div class='footnotes'><!-- l. 42 --><p class='noindent'><span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>If the length of the compressed file is equal or larger than the length of the original
+   <div class='footnotes'><!-- l. 48 --><p class='noindent'><span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='ecrm-0800'>If the length of the compressed file is equal or larger than the length of the original
 </span><span class='ecrm-0800'>file,  then,  for  the  compressor  that  we  are  using,  there  is  not  redundancy  in  the  original
 </span><span class='ecrm-0800'>representation.</span></p>
-<!-- l. 98 --><p class='indent'>     <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='ecrm-0800'>For this reason, the slopes are negative.</span></p>
-<!-- l. 131 --><p class='indent'>     <span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>The distortion generated in one of the sources does not influence the distortion generated in
-</span><span class='ecrm-0800'>the other source.</span></p><!-- l. 137 --><p class='indent'> <span class='footnote-mark'><a href='#fn4x0-bk' id='fn4x0'><sup class='textsuperscript'>4</sup></a></span><span class='ecrm-0800'>Or in general, a linear combination of the distortions, where each source contributes more
+<!-- l. 105 --><p class='indent'>     <span class='footnote-mark'><a href='#fn2x0-bk' id='fn2x0'><sup class='textsuperscript'>2</sup></a></span><span class='ecrm-0800'>For this reason, the slopes are negative.</span></p>
+<!-- l. 145 --><p class='indent'>     <span class='footnote-mark'><a href='#fn3x0-bk' id='fn3x0'><sup class='textsuperscript'>3</sup></a></span><span class='ecrm-0800'>The distortion generated in one of the sources does not influence the distortion generated in
+</span><span class='ecrm-0800'>the other source.</span></p><!-- l. 151 --><p class='indent'> <span class='footnote-mark'><a href='#fn4x0-bk' id='fn4x0'><sup class='textsuperscript'>4</sup></a></span><span class='ecrm-0800'>Or in general, a linear combination of the distortions, where each source contributes more
 </span><span class='ecrm-0800'>than the other(s) to the total distortion</span> \(D\) <span class='ecrm-0800'>(this occurs, for example, when the inverse
 </span><span class='ecrm-0800'>filters of a linear (orthogonal, backward) transform has different gains, in which case the
 </span><span class='ecrm-0800'>quantization step sizes for a subband should be inversely proportional to the subband

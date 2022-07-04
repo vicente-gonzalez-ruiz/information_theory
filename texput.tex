@@ -5,6 +5,12 @@
 
 \tableofcontents
 
+\section{Information measurement}
+Information is usually estimated through the measurement of the
+\href{https://en.wikipedia.org/wiki/Variance}{variance} or the
+\href{https://en.wikipedia.org/wiki/Entropy}{entropy}.
+
+
 \section{Statistical redundancy}
 \href{https://en.wikipedia.org/wiki/Redundancy_(information_theory)}{Statistical
   redundancy} is present in all those sequences of symbols where we
@@ -86,6 +92,7 @@ represented as a curve.
 such as the shown in the
 Fig.~\ref{fig:RD_slopes}.
 
+
 Usually, RD curves are convex, which means
 that if $\lambda_i$ is the slope of the curve measured at the $i$-th
 point of the curve (starting at the lowest bit-rate), it usually hold
@@ -103,6 +110,13 @@ Eq.~\eqref{eq:convexity} is not always true in the real world.
 Notice that, the higher the slope, the higher the benefit in terms of RD.
 
 %}}}
+
+\section{Slope computation}
+We define the slope of the                            
+    $n$-th point in a RD curve as the slope of the straight line                             
+    passing through the points $n$ and $n+1$ (see the                                        
+    Fig.~\ref{fig:slope_computation}). The slope of the point for the                        
+    highest rate is defined to $0$.
 
 \section{Comparing RD curves}
 RD curves should be convex. If we have two curves, the best one from a
