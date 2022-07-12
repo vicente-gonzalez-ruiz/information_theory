@@ -2,14 +2,14 @@
 
 \title{Information Theory}
 \maketitle
-
 \tableofcontents
 
 \section{Information measurement}
 Information is usually estimated through the measurement of the
 \href{https://en.wikipedia.org/wiki/Variance}{variance} or the
-\href{https://en.wikipedia.org/wiki/Entropy}{entropy}.
-
+\href{https://en.wikipedia.org/wiki/Entropy}{entropy}. The higher the
+variance (or the entropy), the higher the amount of information
+represented by the data.
 
 \section{Statistical redundancy}
 \href{https://en.wikipedia.org/wiki/Redundancy_(information_theory)}{Statistical
@@ -125,11 +125,6 @@ We define the slope of the
     Fig.~\ref{fig:slope_computation}). The slope of the point for the                        
     highest rate is defined to $0$.
 
-\section{Comparing RD curves}
-RD curves should be convex. If we have two curves, the best one from a
-RD perspective is those that minimizes the sum of the distances from
-its RD points to the origin of coordinates $(0,0)$.
-
 \section{RDO (Rate/Distortion) Optimization}
 
 \begin{figure}
@@ -177,8 +172,20 @@ the slope of the source $B$. Therefore, the optimal quantization
 steps are obtained when Eq.~\ref{eq:optimal_quantization} is
 true.
 
+\section{Comparing RD curves}
+RD curves should be convex. If we have two curves $A$ and $B$, the
+best one from a RD perspective is those that minimizes the sum of the
+distances from its RD points to the origin of coordinates $(0,0)$.
+
+One of the most common techniques to compare RD curves is based on the
+Lagrangian~\cite{vetterli1995wavelets,sayood2017introduction}
+\begin{equation}
+  J^{\{A,B\}}=R^{\{A,B\}}+\lambda D^{\{A,B\}},
+  \label{eq:lagrangian}
+\end{equation}
+that, for a given $\lambda$ (considering the same slope in both
+curves) indicates which curve is closer to the origin.
+
 \section{Resources}
-%{{{ 
 \renewcommand{\addcontentsline}[3]{}% Remove functionality of \addcontentsline
 \bibliography{data-compression,signal-processing,DWT}
-%}}}
