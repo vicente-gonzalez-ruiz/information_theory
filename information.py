@@ -21,6 +21,7 @@ def energy(x):
 def average_energy(x):
     return energy(x)/np.size(x)
 
+# see https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.shannon_entropy
 def entropy(sequence_of_symbols):
     logger.debug(f"sequence_of_symbols={sequence_of_symbols}")
     assert sequence_of_symbols.ndim == 1
