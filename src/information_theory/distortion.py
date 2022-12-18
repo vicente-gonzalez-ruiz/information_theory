@@ -1,6 +1,6 @@
 '''Distortion computation.'''
 
-import information
+import .information
 import numpy as np
 import math
 from skimage.metrics import structural_similarity as ssim
