@@ -1,13 +1,13 @@
 '''Distortion computation.'''
 
-import .information
+from .information import average_energy
 import numpy as np
 import math
 from skimage.metrics import structural_similarity as ssim
 
 def MSE(x, y):
     error_signal = x.astype(np.float64) - y
-    return information.average_energy(error_signal)
+    return average_energy(error_signal)
 
 def RMSE(x, y):
     return math.sqrt(MSE(x, y))
