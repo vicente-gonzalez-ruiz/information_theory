@@ -12,5 +12,5 @@ def MSE(x, y):
 def RMSE(x, y):
     return math.sqrt(MSE(x, y))
 
-def SSIM(x, y):
-    return ssim(x, y, data_range=y.max() - y.min(), full=False)
+def SSIM(x, y, nchannels=1):
+    return ssim(x, y, data_range=y.max() - y.min(), full=False, channel_axis=nchannels)
