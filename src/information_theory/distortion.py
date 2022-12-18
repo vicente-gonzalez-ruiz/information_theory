@@ -12,6 +12,8 @@ def MSE(x, y):
 def RMSE(x, y):
     return math.sqrt(MSE(x, y))
 
-# Set channel_axis=0 for grayscale images.
-def SSIM(x, y, channel_axis=2):
-    return ssim(x, y, data_range=y.max() - y.min(), full=False, channel_axis=channel_axis)
+def SSIM_color(x, y):
+    return ssim(x, y, data_range=y.max() - y.min(), full=False, channel_axis=2)
+
+def SSIM_grayscale(x, y, channel_axis=2):
+    return ssim(x, y, data_range=y.max() - y.min(), full=False)
