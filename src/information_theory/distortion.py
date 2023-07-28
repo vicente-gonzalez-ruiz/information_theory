@@ -5,15 +5,41 @@ import numpy as np
 import math
 from skimage.metrics import structural_similarity as ssim
 
-def MSE(x, y):
-    error_signal = x.astype(np.float64) - y
+def MSE(noisy, GT):
+    error_signal = noisy.astype(np.float64) - GT
     return average_energy(error_signal)
 
-def RMSE(x, y):
-    return math.sqrt(MSE(x, y))
+def RMSE(noisy, GT):
+    return math.sqrt(MSE(noisy, GT))
 
-def SSIM_color(x, y):
-    return ssim(x, y, data_range=y.max() - y.min(), full=False, channel_axis=2)
+def SSIM_color(noisy, GT, channel_axis=2):
+    # This is not the average SSIM between the RGB channels.
+    return ssim(noisy, GT, data_range=GT.max() - GT.min(), full=False, channel_axis)
 
-def SSIM_grayscale(x, y, channel_axis=2):
-    return ssim(x, y, data_range=y.max() - y.min(), full=False)
+def SSIM_grayscale(noisy, GT):
+    return ssim(noisy, GT, data_range=GT.max() - GT.min(), full=False)
+
+def SSIM(noisy, GT):
+    return SSIM_grayscale(noisy, GT)
+
+def PSNR(noisy, GT):
+    max_GT = np.max(GT).astype(np.float64)
+    return 10*math.log((max_GT*max_GT)/MSE(noisy, GT))
+
+def avg_PSNR(noisy, GT, N_channels=3):
+    avg = 0
+    for i in range(N_channels):
+        p = PSNR(noisy[..., i], GT[..., i])
+        print(p)
+        avg += p
+    avg /= 3
+    return avg
+
+def avg_SSIM(noisy, GT, N_channels=3):
+    avg = 0
+    for i in range(N_channels):
+        p = SSIM(noisy[..., i], GT[..., i])
+        print(p)
+        avg += p
+    avg /= 3
+    return avg
