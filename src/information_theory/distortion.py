@@ -14,7 +14,7 @@ def RMSE(noisy, GT):
 
 def SSIM_color(noisy, GT, channel_axis=2):
     # This is not the average SSIM between the RGB channels.
-    return ssim(noisy, GT, data_range=GT.max() - GT.min(), full=False, channel_axis)
+    return ssim(noisy, GT, data_range=GT.max() - GT.min(), full=False, channel_axis=channel_axis)
 
 def SSIM_grayscale(noisy, GT):
     return ssim(noisy, GT, data_range=GT.max() - GT.min(), full=False)
