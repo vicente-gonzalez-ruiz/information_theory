@@ -24,6 +24,7 @@ def SSIM(noisy, GT):
 
 def PSNR(noisy, GT):
     max_GT = np.max(GT).astype(np.float64)
+    assert max_GT > 0, f"max_GT={max_GT}"
     return 10*math.log((max_GT*max_GT)/MSE(noisy, GT))
 
 def avg_PSNR(noisy, GT, N_channels=3):
