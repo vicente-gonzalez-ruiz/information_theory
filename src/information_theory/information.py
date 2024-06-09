@@ -5,6 +5,8 @@ import math
 #import logging
 #import debug
 import os
+from skimage.metrics import structural_similarity as ssim
+from scipy import stats
 
 import logging
 logger = logging.getLogger(__name__)
@@ -48,6 +50,18 @@ def entropy(sequence_of_symbols):
     logger.info(f"entropy={_entropy}")
 
     return _entropy
+
+# http://faculty.ucmerced.edu/mhyang/papers/iccv13_denoise.pdf
+def compute_quality_index(noisy, denoised):
+    '''Returns a number between [-1,1]. The higher the better. '''
+    diff = (noisy - denoised).astype(np.uint8)
+    _, N = ssim(noisy, diff, full=True)
+    _, P = ssim(noisy, denoised.astype(np.uint8), full=True)
+    quality, _ = stats.pearsonr(N.flatten(), P.flatten())
+    if math.isnan(quality):
+        return 0.0
+    else:
+        return quality
 
 def write(data, prefix='', number=0):
     logger.info(f"data.size={data.size}")
