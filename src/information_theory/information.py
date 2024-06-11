@@ -54,9 +54,27 @@ def entropy(sequence_of_symbols):
 # http://faculty.ucmerced.edu/mhyang/papers/iccv13_denoise.pdf
 def compute_quality_index(noisy, denoised):
     '''Returns a number between [-1,1]. The higher the better. '''
-    diff = (noisy - denoised).astype(np.uint8)
-    _, N = ssim(noisy, diff, full=True)
-    _, P = ssim(noisy, denoised.astype(np.uint8), full=True)
+    #diff = (noisy - denoised).astype(np.uint8)
+    noisy = noisy.astype(np.float64)
+    denoised = denoised.astype(np.float64)
+    noisy -= np.mean(noisy)
+    denoised -= np.mean(denoised)
+    diff = noisy - denoised
+    min_noisy = np.min(noisy)
+    min_diff = np.min(diff)
+    min_ = min(min_noisy, min_diff)
+    max_noisy = np.max(noisy)
+    max_diff = np.max(diff)
+    max_ = max(max_noisy, max_diff)
+    data_range = max_ - min_
+    _, N = ssim(noisy, diff, data_range=data_range, full=True)
+    #_, P = ssim(noisy, denoised.astype(np.uint8), full=True)
+    min_denoised = np.min(denoised)
+    max_denoised = np.max(denoised)
+    min_ = min(min_noisy, min_denoised)
+    max_ = max(max_noisy, max_denoised)
+    data_range = max_ - min_
+    _, P = ssim(noisy, denoised, data_range=data_range, full=True)
     quality, _ = stats.pearsonr(N.flatten(), P.flatten())
     if math.isnan(quality):
         return 0.0
