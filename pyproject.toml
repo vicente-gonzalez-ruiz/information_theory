@@ -22,6 +22,11 @@ dynamic = ["dependencies"]
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
 [project.urls]
 "Homepage" = "https://github.com/vicente-gonzalez-ruiz/information_theory"
 "Bug Tracker" = "https://github.com/vicente-gonzalez-ruiz/information_theory/issues"
